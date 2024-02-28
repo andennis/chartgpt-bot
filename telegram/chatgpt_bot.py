@@ -1,13 +1,13 @@
 import telebot
+import os
 from openai import OpenAI
 
 client = OpenAI(
-    api_key="KEY",
-    base_url="https://api.proxyapi.ru/openai/v1",
+    api_key=os.environ.get('OPENAI_API_KEY'),
+    base_url=os.environ.get('OPENAI_URL'),
 )
 
-TOKEN = "TOKEN"
-bot = telebot.TeleBot(TOKEN)
+bot = telebot.TeleBot(os.environ.get('BOT_TOKEN'))
 
 chat_histories = {}
 
@@ -37,5 +37,6 @@ def chat_with_ai(message):
 @bot.message_handler(func=lambda message: True)
 def echo_all(message):
     chat_with_ai(message)
+
 
 bot.polling()

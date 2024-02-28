@@ -1,6 +1,7 @@
 import telebot
 from gtts import gTTS
 import io
+import os
 from openai import OpenAI
 
 client = OpenAI(
@@ -8,8 +9,7 @@ client = OpenAI(
     base_url="https://api.proxyapi.ru/openai/v1",
 )
 
-TOKEN = "TOKEN"
-bot = telebot.TeleBot(TOKEN)
+bot = telebot.TeleBot(os.environ.get('BOT_TOKEN'))
 
 chat_histories = {}
 
