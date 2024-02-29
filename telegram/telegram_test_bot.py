@@ -35,4 +35,5 @@ def handle_caps(message):
     caps_text = text_to_caps.upper()
     bot.send_message(message.chat.id, caps_text)
 
-bot.polling(none_stop=True)
+
+bot.polling(non_stop=True)

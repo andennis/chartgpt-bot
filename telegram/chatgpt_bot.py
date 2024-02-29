@@ -39,4 +39,5 @@ def echo_all(message):
     chat_with_ai(message)
 
 
-bot.polling()
+if __name__ == '__main__':
+    bot.polling(non_stop=True)
